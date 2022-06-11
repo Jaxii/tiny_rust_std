@@ -1,0 +1,24 @@
+[package]
+name = "tiny_rust_base"
+version = "0.1.0"
+authors = ["Jaxii"]
+edition = "2021"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+lto = true
+strip = true
+debug = false
+panic = "abort"
+opt-level = "z"
+codegen-units = 1
+
+[build-dependencies]
+
+
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-Ctarget-feature=+crt-static"]
+[target.i686-pc-windows-msvc]
+rustflags = ["-Ctarget-feature=+crt-static"]
